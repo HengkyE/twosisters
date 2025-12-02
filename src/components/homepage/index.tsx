@@ -17,6 +17,11 @@ const { Title, Paragraph, Text } = Typography;
 export const Homepage: React.FC = () => {
   const router = useRouter();
   const { data: user } = useGetIdentity();
+  const phoneNumber = "0294987092";
+  
+  const handleCall = () => {
+    window.location.href = `tel:${phoneNumber}`;
+  };
 
   const services = [
     {
@@ -148,15 +153,8 @@ export const Homepage: React.FC = () => {
           <Button
             type="primary"
             size="large"
-            icon={<CalendarOutlined />}
-            onClick={() => {
-              if (user) {
-                router.push("/blog-posts");
-              } else {
-                // For client display - can show contact info or booking form later
-                alert("Please contact us to book an appointment. Phone: (Your Phone Number)");
-              }
-            }}
+            icon={<PhoneOutlined />}
+            onClick={handleCall}
             style={{
               background: "#C9A961",
               borderColor: "#C9A961",
@@ -334,14 +332,7 @@ export const Homepage: React.FC = () => {
             type="primary"
             size="large"
             icon={<PhoneOutlined />}
-            onClick={() => {
-              if (user) {
-                router.push("/blog-posts");
-              } else {
-                // For client display - can show contact info or booking form later
-                alert("Please contact us to book an appointment. Phone: (Your Phone Number)");
-              }
-            }}
+            onClick={handleCall}
             style={{
               background: "#C9A961",
               borderColor: "#C9A961",
@@ -378,6 +369,42 @@ export const Homepage: React.FC = () => {
             </Button>
           </a>
         </Space>
+        <div
+          style={{
+            marginTop: "40px",
+            textAlign: "center",
+            color: "#f5f1e8",
+          }}
+        >
+          <Space direction="vertical" size="middle" style={{ width: "100%" }}>
+            <div>
+              <PhoneOutlined style={{ marginRight: "8px", fontSize: "16px" }} />
+              <Text style={{ fontSize: "16px", color: "#f5f1e8" }}>
+                <a
+                  href={`tel:${phoneNumber}`}
+                  style={{
+                    color: "#f5f1e8",
+                    textDecoration: "none",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.textDecoration = "underline";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.textDecoration = "none";
+                  }}
+                >
+                  {phoneNumber}
+                </a>
+              </Text>
+            </div>
+            <div>
+              <EnvironmentOutlined style={{ marginRight: "8px", fontSize: "16px" }} />
+              <Text style={{ fontSize: "16px", color: "#f5f1e8" }}>
+                6a/211 Ben Boyd Rd, Neutral Bay NSW 2089
+              </Text>
+            </div>
+          </Space>
+        </div>
       </div>
 
       {/* Footer */}
@@ -393,6 +420,7 @@ export const Homepage: React.FC = () => {
           © 2024 Two Sisters Massage. All rights reserved.
         </Paragraph>
       </div>
+
     </div>
   );
 };

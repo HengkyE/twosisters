@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, Card, Col, Row, Typography, Space, Tag, Divider } from "antd";
-import { CalendarOutlined } from "@ant-design/icons";
+import { PhoneOutlined } from "@ant-design/icons";
 import { useRouter } from "next/navigation";
 import { useGetIdentity } from "@refinedev/core";
 import React, { useEffect } from "react";
@@ -146,6 +146,11 @@ const treatments: Treatment[] = [
 export default function TreatmentsPage() {
   const router = useRouter();
   const { data: user } = useGetIdentity();
+  const phoneNumber = "0294987092";
+  
+  const handleCall = () => {
+    window.location.href = `tel:${phoneNumber}`;
+  };
 
   useEffect(() => {
     // Handle anchor links for smooth scrolling
@@ -446,14 +451,8 @@ export default function TreatmentsPage() {
         <Button
           type="primary"
           size="large"
-          icon={<CalendarOutlined />}
-          onClick={() => {
-            if (user) {
-              router.push("/blog-posts");
-            } else {
-              alert("Please contact us to book an appointment. Phone: (Your Phone Number)");
-            }
-          }}
+          icon={<PhoneOutlined />}
+          onClick={handleCall}
           style={{
             background: "#C9A961",
             borderColor: "#C9A961",
@@ -482,6 +481,7 @@ export default function TreatmentsPage() {
           © 2024 Two Sisters Massage. All rights reserved.
         </Paragraph>
       </div>
+
     </div>
   );
 }
