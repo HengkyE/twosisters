@@ -473,11 +473,92 @@ export default function TreatmentsPage() {
         style={{
           background: "#4A4A4A",
           color: "#fff",
-          padding: "40px 24px",
+          padding: "60px 24px 40px",
           textAlign: "center",
         }}
       >
-        <Paragraph style={{ color: "#ccc", margin: 0 }}>
+        {/* HICAPS and MAA Information */}
+        <div
+          style={{
+            marginBottom: "40px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            flexWrap: "wrap",
+            gap: "60px",
+            maxWidth: "1000px",
+            margin: "0 auto 40px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              flex: "1",
+              minWidth: "280px",
+            }}
+          >
+            <div
+              style={{
+                background: "#fff",
+                padding: "20px",
+                borderRadius: "8px",
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <img
+                src="/hicaps.png"
+                alt="HICAPS"
+                style={{
+                  height: "150px",
+                  width: "auto",
+                  objectFit: "contain",
+                  maxWidth: "100%",
+                }}
+              />
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              flex: "1",
+              minWidth: "280px",
+            }}
+          >
+            <div
+              style={{
+                background: "#fff",
+                padding: "20px",
+                borderRadius: "8px",
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <img
+                src="/maa.png"
+                alt="Massage Association of Australia"
+                style={{
+                  height: "90px",
+                  width: "auto",
+                  objectFit: "contain",
+                  maxWidth: "100%",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+        <Divider style={{ borderColor: "rgba(255, 255, 255, 0.2)", margin: "30px 0" }} />
+        <Paragraph style={{ color: "#ccc", margin: 0, fontSize: "14px" }}>
           © 2024 Two Sisters Massage. All rights reserved.
         </Paragraph>
       </div>
