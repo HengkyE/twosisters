@@ -2,10 +2,10 @@
 
 import { Button, Card, Col, Row, Typography, Space, Divider } from "antd";
 import {
-  CalendarOutlined,
   StarOutlined,
   PhoneOutlined,
   EnvironmentOutlined,
+  GiftOutlined,
 } from "@ant-design/icons";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -225,7 +225,16 @@ export const Homepage: React.FC = () => {
             </Col>
           ))}
         </Row>
-        <div style={{ textAlign: "center", marginTop: "40px" }}>
+        <div
+          style={{
+            marginTop: "40px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "16px",
+            flexWrap: "wrap",
+          }}
+        >
           <Link href="/treatments">
             <Button
               type="primary"
@@ -242,6 +251,31 @@ export const Homepage: React.FC = () => {
               View All Treatments & Prices
             </Button>
           </Link>
+          <a
+            href="https://www.fresha.com/book-now/two-sisters-massage-and-day-spa-a47scy73/gift-cards?share=true&pId=2802852"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none", display: "inline-block" }}
+          >
+            <Button
+              type="primary"
+              size="large"
+              icon={<GiftOutlined />}
+              style={{
+                background: "linear-gradient(135deg, #D58AA7 0%, #C86F94 100%)",
+                borderColor: "#C86F94",
+                color: "#fff",
+                height: "50px",
+                padding: "0 32px",
+                fontSize: "16px",
+                fontWeight: 600,
+                borderRadius: "6px",
+                boxShadow: "0 4px 12px rgba(200, 111, 148, 0.3)",
+              }}
+            >
+              Gift Cards for Loved Ones
+            </Button>
+          </a>
         </div>
       </div>
 

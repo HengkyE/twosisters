@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, Card, Col, Row, Typography, Space, Tag, Divider } from "antd";
-import { PhoneOutlined } from "@ant-design/icons";
+import { PhoneOutlined, GiftOutlined } from "@ant-design/icons";
 import { useRouter } from "next/navigation";
 import { useGetIdentity } from "@refinedev/core";
 import React, { useEffect } from "react";
@@ -302,6 +302,41 @@ export default function TreatmentsPage() {
               </div>
             ))}
           </div>
+          {treatment.id === "remedial" && (
+            <div
+              style={{
+                flex: "1 1 auto",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                minWidth: "160px",
+              }}
+            >
+              <div
+                style={{
+                  background: "#fff",
+                  padding: "12px 16px",
+                  borderRadius: "8px",
+                  boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
+                  border: "1px solid rgba(74, 155, 142, 0.12)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <img
+                  src="/hicaps.png"
+                  alt="HICAPS available — fast claims on the spot"
+                  style={{
+                    height: "84px",
+                    width: "auto",
+                    objectFit: "contain",
+                    maxWidth: "100%",
+                  }}
+                />
+              </div>
+            </div>
+          )}
           {treatment.notes && (
             <Tag
               color="orange"
@@ -448,24 +483,59 @@ export default function TreatmentsPage() {
         >
           Book your preferred treatment today and experience the healing power of touch.
         </Paragraph>
-        <Button
-          type="primary"
-          size="large"
-          icon={<PhoneOutlined />}
-          onClick={handleCall}
+        <div
           style={{
-            background: "#C9A961",
-            borderColor: "#C9A961",
-            color: "#fff",
-            height: "50px",
-            padding: "0 32px",
-            fontSize: "16px",
-            borderRadius: "6px",
-            boxShadow: "0 4px 12px rgba(201, 169, 97, 0.3)",
+            display: "flex",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            gap: "16px",
+            alignItems: "center",
           }}
         >
-          Book Your Treatment
-        </Button>
+          <Button
+            type="primary"
+            size="large"
+            icon={<PhoneOutlined />}
+            onClick={handleCall}
+            style={{
+              background: "#C9A961",
+              borderColor: "#C9A961",
+              color: "#fff",
+              height: "50px",
+              padding: "0 32px",
+              fontSize: "16px",
+              borderRadius: "6px",
+              boxShadow: "0 4px 12px rgba(201, 169, 97, 0.3)",
+            }}
+          >
+            Book Your Treatment
+          </Button>
+          <a
+            href="https://www.fresha.com/book-now/two-sisters-massage-and-day-spa-a47scy73/gift-cards?share=true&pId=2802852"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none", display: "inline-block" }}
+          >
+            <Button
+              type="primary"
+              size="large"
+              icon={<GiftOutlined />}
+              style={{
+                background: "linear-gradient(135deg, #D58AA7 0%, #C86F94 100%)",
+                borderColor: "#C86F94",
+                color: "#fff",
+                height: "50px",
+                padding: "0 32px",
+                fontSize: "16px",
+                fontWeight: 600,
+                borderRadius: "6px",
+                boxShadow: "0 4px 12px rgba(200, 111, 148, 0.3)",
+              }}
+            >
+              Gift Cards for Loved Ones
+            </Button>
+          </a>
+        </div>
       </div>
 
       {/* Footer */}

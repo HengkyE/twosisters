@@ -61,4 +61,3 @@ When deploying to production (Vercel, Netlify, etc.), add these environment vari
 - `GOOGLE_CALENDAR_ID`
 
 Do NOT commit `.env.local` to git (it's already in `.gitignore`).
-
