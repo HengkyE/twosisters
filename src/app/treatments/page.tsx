@@ -1,13 +1,16 @@
 "use client";
 
 import { Button, Card, Col, Row, Typography, Space, Tag, Divider } from "antd";
-import { PhoneOutlined, GiftOutlined } from "@ant-design/icons";
+import { CalendarOutlined, GiftOutlined } from "@ant-design/icons";
 import { useRouter } from "next/navigation";
 import { useGetIdentity } from "@refinedev/core";
 import React, { useEffect } from "react";
 import { HomepageHeader } from "@components/homepage-header";
 
 const { Title, Paragraph, Text } = Typography;
+
+const BOOKING_URL =
+  "https://www.fresha.com/book-now/two-sisters-massage-and-day-spa-a47scy73/services?lid=2898881&share=true&pId=2802852";
 
 interface Treatment {
   id: string;
@@ -146,12 +149,6 @@ const treatments: Treatment[] = [
 export default function TreatmentsPage() {
   const router = useRouter();
   const { data: user } = useGetIdentity();
-  const phoneNumber = "0294987092";
-  
-  const handleCall = () => {
-    window.location.href = `tel:${phoneNumber}`;
-  };
-
   useEffect(() => {
     // Handle anchor links for smooth scrolling
     const hash = window.location.hash;
@@ -492,24 +489,30 @@ export default function TreatmentsPage() {
             alignItems: "center",
           }}
         >
-          <Button
-            type="primary"
-            size="large"
-            icon={<PhoneOutlined />}
-            onClick={handleCall}
-            style={{
-              background: "#C9A961",
-              borderColor: "#C9A961",
-              color: "#fff",
-              height: "50px",
-              padding: "0 32px",
-              fontSize: "16px",
-              borderRadius: "6px",
-              boxShadow: "0 4px 12px rgba(201, 169, 97, 0.3)",
-            }}
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none", display: "inline-block" }}
           >
-            Book Your Treatment
-          </Button>
+            <Button
+              type="primary"
+              size="large"
+              icon={<CalendarOutlined />}
+              style={{
+                background: "#C9A961",
+                borderColor: "#C9A961",
+                color: "#fff",
+                height: "50px",
+                padding: "0 32px",
+                fontSize: "16px",
+                borderRadius: "6px",
+                boxShadow: "0 4px 12px rgba(201, 169, 97, 0.3)",
+              }}
+            >
+              Book Your Treatment
+            </Button>
+          </a>
           <a
             href="https://www.fresha.com/book-now/two-sisters-massage-and-day-spa-a47scy73/gift-cards?share=true&pId=2802852"
             target="_blank"

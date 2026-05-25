@@ -2,6 +2,7 @@
 
 import { Button, Card, Col, Row, Typography, Space, Divider } from "antd";
 import {
+  CalendarOutlined,
   StarOutlined,
   PhoneOutlined,
   EnvironmentOutlined,
@@ -14,14 +15,13 @@ import React from "react";
 
 const { Title, Paragraph, Text } = Typography;
 
+const BOOKING_URL =
+  "https://www.fresha.com/book-now/two-sisters-massage-and-day-spa-a47scy73/services?lid=2898881&share=true&pId=2802852";
+
 export const Homepage: React.FC = () => {
   const router = useRouter();
   const { data: user } = useGetIdentity();
   const phoneNumber = "0294987092";
-  
-  const handleCall = () => {
-    window.location.href = `tel:${phoneNumber}`;
-  };
 
   const services = [
     {
@@ -150,23 +150,29 @@ export const Homepage: React.FC = () => {
           your stress and restore your inner balance.
         </Paragraph>
         <Space size="large">
-          <Button
-            type="primary"
-            size="large"
-            icon={<PhoneOutlined />}
-            onClick={handleCall}
-            style={{
-              background: "#C9A961",
-              borderColor: "#C9A961",
-              height: "50px",
-              padding: "0 32px",
-              fontSize: "16px",
-              borderRadius: "6px",
-              boxShadow: "0 4px 12px rgba(201, 169, 97, 0.3)",
-            }}
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none" }}
           >
-            Book Appointment
-          </Button>
+            <Button
+              type="primary"
+              size="large"
+              icon={<CalendarOutlined />}
+              style={{
+                background: "#C9A961",
+                borderColor: "#C9A961",
+                height: "50px",
+                padding: "0 32px",
+                fontSize: "16px",
+                borderRadius: "6px",
+                boxShadow: "0 4px 12px rgba(201, 169, 97, 0.3)",
+              }}
+            >
+              Book Appointment
+            </Button>
+          </a>
         </Space>
       </div>
 
@@ -362,24 +368,30 @@ export const Homepage: React.FC = () => {
           Book your appointment today and take the first step towards a more relaxed you.
         </Paragraph>
         <Space size="large">
-          <Button
-            type="primary"
-            size="large"
-            icon={<PhoneOutlined />}
-            onClick={handleCall}
-            style={{
-              background: "#C9A961",
-              borderColor: "#C9A961",
-              color: "#fff",
-              height: "50px",
-              padding: "0 32px",
-              fontSize: "16px",
-              borderRadius: "6px",
-              boxShadow: "0 4px 12px rgba(201, 169, 97, 0.3)",
-            }}
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none" }}
           >
-            Book Now
-          </Button>
+            <Button
+              type="primary"
+              size="large"
+              icon={<CalendarOutlined />}
+              style={{
+                background: "#C9A961",
+                borderColor: "#C9A961",
+                color: "#fff",
+                height: "50px",
+                padding: "0 32px",
+                fontSize: "16px",
+                borderRadius: "6px",
+                boxShadow: "0 4px 12px rgba(201, 169, 97, 0.3)",
+              }}
+            >
+              Book Now
+            </Button>
+          </a>
           <a
             href="https://www.google.com/maps/search/?api=1&query=6a/211+Ben+Boyd+Rd,+Neutral+Bay+NSW+2089"
             target="_blank"
